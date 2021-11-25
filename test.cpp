@@ -1,24 +1,56 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define SIZE 255
+class Strtype{
+    char *p ;
+    int len;
+    public:
+        Strtype();
+        ~Strtype();
+        void set(char *ptr);
+        void show();
+};
 
-int main() {
-   int m, num;
-   cin >> m;
-   vector <int> v(m);
-   for (int i = 0; i < m; i++)
-       cin >> v[i];
-   int n, val;
-   cin >> n;
-   for (int i = 0; i < n; i++)
-   {
-       cin >> val;
-       vector <int>::iterator low = lower_bound(v.begin(), v.end(), val);
-       cout << v[low];
-       if (v[low - v.begin()] == val)
-           cout << "Yes " << (low - v.begin() + 1) << endl;
-       else
-           cout << "No " << (low - v.begin() + 1) << endl;
-   }
-   return 0;
+Strtype :: Strtype()
+{
+    p = (char *) malloc (SIZE);
+    if (!p){
+        cout << "Allocation failed\n";
+        exit (1);
+    } 
+    *p = '\0';
+    len = 0;
+}
+
+Strtype :: ~Strtype()
+{
+    cout << "Freeing p\n";
+    free(p);
+}
+
+void Strtype :: set (char *ptr)
+{
+    if (!strlen(p) >= SIZE){
+        cout << "String too big";
+        return ;
+    }
+    strcpy(p,ptr);
+    len = strlen (p);
+}
+
+void Strtype :: show (){
+    cout << p << "-length: " << len;
+    cout << '\n'; 
+} 
+
+int main()
+{
+    Strtype t,tt;
+    t.set("This is a test");
+    tt.set("I like c++");
+    t.show();
+    tt.show();
+
+
 }
