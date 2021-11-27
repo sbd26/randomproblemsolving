@@ -7,19 +7,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+int checkfunction(void)
 {
-	int line;
-	cin >> line;
-	while ( line--)
-	{
 	string s;
 	cin >> s;
 	int st_array[s.size()],rev_array[s.size()];
 	string rev = s;
 	reverse ( rev.begin(),rev.end());
-	int stores[s.size()-1],storer[s.size()-1],flag = 0;
-	for(int i = 0; i < s.size()-1;i++)
+	int stores[s.size()-1];
+	int storer[s.size()-1];
+	int flag = 0;
+	int i ;
+	for( i = 0; i < s.size()-1;i++)
 	{
 		stores[i] = abs ( s[i] - s[i+1]);
 		storer[i] = abs (rev[i] - rev[i+1]);
@@ -32,14 +31,24 @@ int main()
 	}
 	
 		
-	if ( flag == 1)
+	return flag; 
+	
+}
+int main()
+{
+	int line;
+	cin >> line;
+	while ( line--)
+	{
+		int flag = checkfunction();
+		if ( flag == 1)
 	cout << "Funny" << endl;
 	else
-	cout << "Not Funny"<< endl; 
-		
-}
+	cout << "Not Funny"<< endl;
 
-
+	
+	}
+	
 
 
 	return 0;
