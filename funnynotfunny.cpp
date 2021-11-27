@@ -18,20 +18,11 @@ int main()
 	int st_array[s.size()],rev_array[s.size()];
 	string rev = s;
 	reverse ( rev.begin(),rev.end());
-
-	int j = s.size()-1;
-	for ( int i = 0; i< s.size(); i++)
-	{
-		st_array[i] = (int) s[i];
-		rev_array [i] = (int) rev[i];
-	}
-	
-	
 	int stores[s.size()-1],storer[s.size()-1],flag = 0;
 	for(int i = 0; i < s.size()-1;i++)
 	{
-		stores[i] = abs ( st_array[i] - st_array[i+1]);
-		storer[i] = abs (rev_array[i] - rev_array[i+1]);
+		stores[i] = abs ( s[i] - s[i+1]);
+		storer[i] = abs (rev[i] - rev[i+1]);
 		if ( stores[i] == storer[i])
 			flag = 1;
 		else {
@@ -40,7 +31,6 @@ int main()
 		}
 	}
 	
-		
 		
 	if ( flag == 1)
 	cout << "Funny" << endl;
