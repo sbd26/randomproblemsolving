@@ -31,12 +31,12 @@ int main()
 		{  
 			if ( iarray[j][i] == 1){
 			flag = 1;
-		}
+			}
 			else
-			{
+					{
 				flag = 0;
 				break;
-			}
+				}
 			
 		}
 		if ( flag == 1)
