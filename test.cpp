@@ -1,56 +1,37 @@
+/*
+ *	Author   : bd26
+ *	telegram : @bd26
+ *  Northern University of Bangladesh
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
+#define newline cout << '\n';
 
-#define SIZE 255
-class Strtype{
-    char *p ;
-    int len;
-    public:
-        Strtype();
-        ~Strtype();
-        void set(char *ptr);
-        void show();
-};
-
-Strtype :: Strtype()
-{
-    p = (char *) malloc (SIZE);
-    if (!p){
-        cout << "Allocation failed\n";
-        exit (1);
-    } 
-    *p = '\0';
-    len = 0;
-}
-
-Strtype :: ~Strtype()
-{
-    cout << "Freeing p\n";
-    free(p);
-}
-
-void Strtype :: set (char *ptr)
-{
-    if (!strlen(p) >= SIZE){
-        cout << "String too big";
-        return ;
-    }
-    strcpy(p,ptr);
-    len = strlen (p);
-}
-
-void Strtype :: show (){
-    cout << p << "-length: " << len;
-    cout << '\n'; 
-} 
 
 int main()
 {
-    Strtype t,tt;
-    t.set("This is a test");
-    tt.set("I like c++");
-    t.show();
-    tt.show();
+	char s[100];
+	scanf("%s",s);
+	int one = 0,zero = 0;
+	int n = strlen(s);
+	int i =0;
+	xx:
+	if(i < n)
+	{
+		if ( s[i] == '1')
+		one++;
+		else
+		zero++;
+		i++;
+		goto xx;
+	}
+	
+	
+	
+	printf("One = %d, Zero = %d", one,zero);
+	newline
 
 
+	return 0;
 }
