@@ -4,34 +4,35 @@
  *  Northern University of Bangladesh
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 #define newline cout << '\n';
+#define fori(a,n)		for(int i = a; i<n; i++)
+
+
+int binarysearch(int array[],int low,int high, int search)
+{
+	int low = 0, high = size-1,x = search;
+	while ( low <= high)
+	{
+		int mid = low + (high - low) / 2;
+		if ( array[mid] ==  x)
+		return mid;
+		if (array[mid] < x)
+		low = mid + 1;
+		else 
+		high = mid - 1;
+	}
+	return -1;	
+}
 
 
 int main()
 {
-	char s[100];
-	scanf("%s",s);
-	int one = 0,zero = 0;
-	int n = strlen(s);
-	int i =0;
-	xx:
-	if(i < n)
-	{
-		if ( s[i] == '1')
-		one++;
-		else
-		zero++;
-		i++;
-		goto xx;
-	}
-	
-	
-	
-	printf("One = %d, Zero = %d", one,zero);
-	newline
-
+	vector <int> mvector(10,100);
+	for ( int i:mvector)
+	cout << i << endl;
 
 	return 0;
 }
